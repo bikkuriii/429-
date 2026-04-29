@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苗栗農村社區小舖 2.0 | AI 轉型實踐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #FDFBF7; scroll-behavior: smooth; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .product-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .progress-animation { animation: grow 2s ease-out forwards; }
+        @keyframes grow { from { width: 0; } to { width: 85%; } }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <nav class="sticky top-0 z-50 glass-card p-4 flex justify-between items-center px-6 md:px-12 shadow-sm">
+        <div class="flex items-center gap-2">
+            <div class="bg-green-700 p-1.5 rounded-lg text-white">
+                <i data-lucide="leaf" class="size-5"></i>
+            </div>
+            <h1 class="text-xl font-bold text-green-900 tracking-tight">苗栗農村小舖 <span class="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full ml-1 uppercase">AI Powered</span></h1>
+        </div>
+        <div class="hidden md:flex space-x-8 text-stone-600 font-medium">
+            <a href="#products" class="hover:text-green-700 transition">農產點心</a>
+            <a href="#growth" class="hover:text-green-700 transition">生長透明</a>
+            <a href="#sweat" class="hover:text-green-700 transition">農夫汗水</a>
+            <a href="#" onclick="openChat()" class="text-blue-600 flex items-center gap-1 font-bold"><i data-lucide="sparkles" class="size-4"></i> AI 諮詢</a>
+        </div>
+    </nav>
+
+    <header class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover" alt="苗栗農田">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-stone-900/40"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">讓每一口鮮甜，<br><span class="text-green-400">都能看見土地的汗水</span></h2>
+            <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto mb-10 font-light">結合 AI 監控與感性數據，連結苗栗十八鄉鎮的真實溫度</p>
+            <div class="flex gap-4 justify-center">
+                <a href="#products" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-bold transition shadow-xl">立即選購</a>
+                <a href="#growth" class="bg-white/20 hover:bg-white/30 backdrop-blur text-white px-8 py-3 rounded-full font-bold transition border border-white/30">查看產地</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-32">
+
+        <section id="products">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <h3 class="text-3xl font-bold text-stone-900">精選農村好物</h3>
+                    <p class="text-stone-500 mt-2">從在地生鮮到精緻點心，每一份都是苗栗的驕傲</p>
+                </div>
+                <div class="flex bg-stone-100 p-1 rounded-xl">
+                    <button class="px-5 py-2 bg-white shadow-sm rounded-lg font-bold text-sm text-green-800">全部</button>
+                    <button class="px-5 py-2 text-sm text-stone-500 hover:text-green-700 transition">在地生鮮</button>
+                    <button class="px-5 py-2 text-sm text-stone-500 hover:text-green-700 transition">農村點心</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="product-card glass-card rounded-2xl overflow-hidden shadow-sm flex flex-col">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg uppercase tracking-wider">AI 監控</span>
+                    </div>
+                    <div class="p-5 flex-grow">
+                        <h4 class="font-bold text-lg">公館無毒紅棗乾</h4>
+                        <p class="text-xs text-stone-500 mt-1 mb-4">石牆村日曬精品，AI 確保恆溫乾燥</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-orange-600 font-extrabold text-xl">$250</span>
+                            <button class="bg-stone-900 hover:bg-green-700 text-white p-2.5 rounded-xl transition shadow-md">
+                                <i data-lucide="shopping-cart" class="size-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card glass-card rounded-2xl overflow-hidden shadow-sm flex flex-col">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg uppercase tracking-wider">人氣點心</span>
+                    </div>
+                    <div class="p-5 flex-grow">
+                        <h4 class="font-bold text-lg">大湖草莓凍乾</h4>
+                        <p class="text-xs text-stone-500 mt-1 mb-4">100% 原果低溫冷凍，酸甜鬆脆</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-orange-600 font-extrabold text-xl">$180</span>
+                            <button class="bg-stone-900 hover:bg-green-700 text-white p-2.5 rounded-xl transition shadow-md">
+                                <i data-lucide="shopping-cart" class="size-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card glass-card rounded-2xl overflow-hidden shadow-sm flex flex-col">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1595033538458-9443209a066a?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg uppercase tracking-wider">首選好茶</span>
+                    </div>
+                    <div class="p-5 flex-grow">
+                        <h4 class="font-bold text-lg">八甲手採東方美人茶</h4>
+                        <p class="text-xs text-stone-500 mt-1 mb-4">蜜香濃郁，苗栗在地製茶大師親製</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-orange-600 font-extrabold text-xl">$1,200</span>
+                            <button class="bg-stone-900 hover:bg-green-700 text-white p-2.5 rounded-xl transition shadow-md">
+                                <i data-lucide="shopping-cart" class="size-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card glass-card rounded-2xl overflow-hidden shadow-sm flex flex-col">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg uppercase tracking-wider">古法手作</span>
+                    </div>
+                    <div class="p-5 flex-grow">
+                        <h4 class="font-bold text-lg">三義柴燒手工米酥</h4>
+                        <p class="text-xs text-stone-500 mt-1 mb-4">傳承一甲子的香脆，慢火慢熬</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-orange-600 font-extrabold text-xl">$120</span>
+                            <button class="bg-stone-900 hover:bg-green-700 text-white p-2.5 rounded-xl transition shadow-md">
+                                <i data-lucide="shopping-cart" class="size-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="growth" class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                    <i data-lucide="eye" class="size-4"></i> 生產透明化
+                </div>
+                <h3 class="text-4xl font-extrabold text-stone-900 mb-6">產地即時監控，<br>見證果實的熟成。</h3>
+                <p class="text-stone-600 leading-relaxed mb-8">
+                    我們在苗栗各大產地部署了 AI 監控系統與 IoT 傳感器。您買的每一顆草莓、每一片茶葉，從發芽到採收的過程都完整記錄在雲端。
+                </p>
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-green-500">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-bold">目前大湖產區草莓生長度</span>
+                        <span class="text-green-600 font-bold">85%</span>
+                    </div>
+                    <div class="w-full bg-stone-200 h-2 rounded-full overflow-hidden">
+                        <div class="progress-animation bg-green-500 h-full"></div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="text-center">
+                            <div class="text-xl font-bold">22°C</div>
+                            <div class="text-[10px] text-stone-400 uppercase">氣溫</div>
+                        </div>
+                        <div class="text-center border-x border-stone-200">
+                            <div class="text-xl font-bold">68%</div>
+                            <div class="text-[10px] text-stone-400 uppercase">濕度</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold">優</div>
+                            <div class="text-[10px] text-stone-400 uppercase">光照</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&q=80" class="rounded-3xl shadow-2xl w-full h-[450px] object-cover">
+            </div>
+        </section>
+
+        <section id="sweat" class="bg-stone-900 text-white rounded-[40px] p-10 md:p-20 overflow-hidden relative">
+            <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+                <i data-lucide="user" class="size-96"></i>
+            </div>
+            <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-4xl font-bold mb-6 italic">這不只是數據，<br>是農夫真實的勞動。</h3>
+                    <p class="text-stone-400 mb-10 leading-relaxed">
+                        我們與小農合作，透過智慧穿戴裝置記錄耕作細節。透過量化「艱辛」，我們希望讓您感受到產品真正的價值。
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white/10 backdrop-blur p-6 rounded-2xl">
+                            <div class="text-orange-400 mb-2"><i data-lucide="footprints"></i></div>
+                            <div class="text-3xl font-bold">42,500+</div>
+                            <div class="text-xs text-stone-400 mt-1 uppercase tracking-widest">累積行走步數</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur p-6 rounded-2xl">
+                            <div class="text-blue-400 mb-2"><i data-lucide="armchair" class="rotate-45"></i></div>
+                            <div class="text-3xl font-bold">1,200 次</div>
+                            <div class="text-xs text-stone-400 mt-1 uppercase tracking-widest">手工修剪次數</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card bg-white/5 border-white/10 p-8 rounded-3xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" class="size-16 rounded-full border-2 border-green-500 object-cover">
+                        <div>
+                            <div class="font-bold">陳大哥</div>
+                            <div class="text-xs text-stone-400">苗栗公館紅棗農</div>
+                        </div>
+                    </div>
+                    <p class="italic text-stone-300 leading-relaxed text-lg">
+                        「夏天日頭赤炎炎，在田裡走沒幾步就滿身大汗。但看到客人說紅棗很甜、全家人都愛喝，這口氣就接得下去。謝謝你們看見我們的辛苦。」
+                    </p>
+                    <button class="mt-8 flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition w-full justify-center shadow-lg">
+                        <i data-lucide="coffee" class="size-5"></i> 送出一份虛擬奉茶應援
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="ai-chat" class="fixed bottom-6 right-6 w-80 glass-card rounded-2xl shadow-2xl overflow-hidden border-2 border-green-200 z-[100]" style="display: none;">
+        <div class="bg-green-800 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="bot" class="size-5"></i>
+                <span class="font-bold">AI 智慧小幫手</span>
+            </div>
+            <button onclick="toggleChat()" class="hover:bg-white/20 p-1 rounded-full"><i data-lucide="x" class="size-4"></i></button>
+        </div>
+        <div class="h-80 p-4 overflow-y-auto text-sm space-y-4 bg-white/50" id="chat-content">
+            <div class="flex gap-2">
+                <div class="bg-green-100 text-green-800 p-3 rounded-2xl rounded-tl-none max-w-[85%] leading-relaxed shadow-sm">
+                    您好！我是您的農村顧問。想為您推薦當季點心，或是為您安排一次產地雲端參訪嗎？
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-t bg-white space-y-2">
+            <button onclick="aiRespond('推薦當季點心')" class="w-full text-left text-xs bg-stone-100 p-2.5 rounded-xl hover:bg-green-50 transition border border-stone-200">🍓 推薦目前最紅的大湖點心</button>
+            <button onclick="aiRespond('農夫勞動數據諮詢')" class="w-full text-left text-xs bg-stone-100 p-2.5 rounded-xl hover:bg-green-50 transition border border-stone-200">🦶 想了解紅棗背後的汗水數據</button>
+            <button onclick="aiRespond('AI 智慧食譜')" class="w-full text-left text-xs bg-stone-100 p-2.5 rounded-xl hover:bg-green-50 transition border border-stone-200">🥘 根據我買的農產提供食譜</button>
+        </div>
+    </div>
+
+    <button onclick="toggleChat()" class="fixed bottom-8 right-8 bg-green-700 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-[90] flex items-center gap-2 group">
+        <i data-lucide="message-circle" class="size-6"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 whitespace-nowrap font-bold">AI 諮詢</span>
+    </button>
+
+    <footer class="bg-stone-100 py-20 px-6 border-t border-stone-200">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex justify-center gap-2 mb-6">
+                <div class="bg-stone-300 p-2 rounded-lg text-white"><i data-lucide="instagram" class="size-5"></i></div>
+                <div class="bg-stone-300 p-2 rounded-lg text-white"><i data-lucide="facebook" class="size-5"></i></div>
+            </div>
+            <p class="text-stone-400 text-sm tracking-widest">© 2026 苗栗縣農會 (農村社區小舖) | 國立聯合大學 行銷策略課程專案</p>
+        </div>
+    </footer>
+
+    <script>
+        // 初始化 Lucide 圖標
+        lucide.createIcons();
+
+        // 聊天視窗開關
+        function toggleChat() {
+            const chat = document.getElementById('ai-chat');
+            chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'block' : 'none';
+        }
+
+        function openChat() {
+            const chat = document.getElementById('ai-chat');
+            chat.style.display = 'block';
+            chat.scrollIntoView();
+        }
+
+        // 簡單 AI 回應邏輯
+        function aiRespond(msg) {
+            const content = document.getElementById('chat-content');
+            
+            // 使用者訊息
+            content.innerHTML += `
+                <div class="flex justify-end mb-4">
+                    <div class="bg-stone-800 text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] shadow-md">
+                        ${msg}
+                    </div>
+                </div>
+            `;
+            
+            // 模擬 AI 思考後回應
+            setTimeout(() => {
+                let reply = "";
+                if(msg.includes('點心')) reply = "目前最受歡迎的是「大湖草莓凍乾」，採用 AI 低溫乾燥技術，保留了 98% 的營養與香氣！";
+                else if(msg.includes('數據')) reply = "陳大哥的紅棗乾每包背後平均累積了 2,400 步的行走勞動。購買它們是對農夫心血最好的回饋。";
+                else if(msg.includes('食譜')) reply = "偵測到您對紅棗感興趣，AI 為您生成：『紅棗黑豆養生茶』，能有效緩解讀書疲勞喔！";
+                
+                content.innerHTML += `
+                    <div class="flex mb-4">
+                        <div class="bg-green-100 text-green-800 p-3 rounded-2xl rounded-tl-none max-w-[85%] shadow-sm border border-green-200">
+                            ${reply}
+                        </div>
+                    </div>
+                `;
+                content.scrollTop = content.scrollHeight;
+            }, 800);
+        }
+    </script>
+</body>
+</html>
